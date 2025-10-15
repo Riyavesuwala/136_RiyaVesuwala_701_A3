@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React CDN Example</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Greeting(props) {
+      return (
+        <div>
+          <h2>Hello, {props.name} </h2>
+          <p>Welcome to the React CDN demo!</p>
+        </div>
+      );
+    }
+
+    function Counter() {
+      const [count, setCount] = React.useState(0);
+
+      return (
+        <div>
+          <h3>Counter: {count}</h3>
+          <button onClick={() => setCount(count + 1)}>Increment</button>
+          <button onClick={() => setCount(count - 1)}>Decrement</button>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div style={{ fontFamily: "Arial", textAlign: "center", marginTop: "50px" }}>
+          <Greeting name="Riya" />
+          <Counter />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>
